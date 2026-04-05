@@ -1,4 +1,4 @@
-# 💬 ChatApp — Real-Time Chat Application
+# 💬 Skype — Real-Time Chat Application
 
 ![CI](https://github.com/Manoj-alishala/Chat-Application/actions/workflows/ci.yml/badge.svg)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white)
