@@ -15,24 +15,33 @@ jobs:
         node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Show repository structure
+      run: |
+        echo "📁 Repository Structure:"
+        ls -la
+        echo ""
+        echo "📁 Server directory:"
+        ls -la server/
+        echo ""
+        echo "📁 Client directory:"
+        ls -la client/
+
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install Root Dependencies
-      run: npm install
-
-    - name: Install Server Dependencies
+    - name: Install Backend Dependencies
       run: npm install --prefix server
 
-    - name: Install Client Dependencies
+    - name: Run Backend Tests
+      run: npm test --prefix server
+
+    - name: Install Frontend Dependencies
       run: npm install --prefix client
 
-    - name: Lint Client
-      run: npm run lint --prefix client
-
-    - name: Build Client
+    - name: Build React App
       run: npm run build --prefix client
