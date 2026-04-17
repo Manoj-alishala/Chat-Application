@@ -1,5 +1,5 @@
 {
-	"name": "skype-chat",
+	"name": "vchat",
 	"version": "1.0.0",
 	"description": "Real-time chat application",
 	"main": "server/server.js",
