@@ -11,6 +11,8 @@ const generateTokenAndSetCookie = (userId, res) => {
 		sameSite: "none", // Since frontend and backend are on different domains
 		secure: true, // Required for sameSite: "none"
 	});
+
+	return token;
 };
 
 export default generateTokenAndSetCookie;

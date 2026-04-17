@@ -14,10 +14,15 @@ window.fetch = async (...args) => {
 	
 	const urlStr = typeof resource === 'string' ? resource : (resource?.url || '');
 	const isApiCall = urlStr.includes('/api/') || (API_BASE_URL && urlStr.startsWith(API_BASE_URL));
+	const token = localStorage.getItem("chat-token");
 
 	if (isApiCall) {
 		if (!config) config = {};
 		config.credentials = "include";
+		config.headers = new Headers(config.headers || {});
+		if (token) {
+			config.headers.set("Authorization", `Bearer ${token}`);
+		}
 	}
 	
 	return originalFetch(resource, config);
